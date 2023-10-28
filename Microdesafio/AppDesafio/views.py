@@ -27,4 +27,4 @@ def entregables(request):
     return render(request,"entregables.html", {"entregables" : entregables})
 
 def inicio(request):
-    return render(request, "inicio.html")
+    return render(request, "padre.html")
