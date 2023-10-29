@@ -20,3 +20,7 @@ class Entregable(models.Model):
     nombre = models.CharField(max_length=100)
     fecha_entrega = models.DateField()
     entreado = models.BooleanField()
+
+class Curso(models.Model):
+    curso = models.CharField(max_length=100)
+    camada = models.IntegerField()
