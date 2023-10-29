@@ -40,7 +40,7 @@ def cursos_formulario(request):
             informacion = mi_formulario.cleaned_data
             curso = Curso(informacion["curso"], informacion["camada"])
             curso.save()
-            return render(request, "padre.html")
+            return render(request, "inicio.html")
     else:
         mi_formulario = CursoFormulario()
         return render(request, "cursos_formulario.html", {"mi_formulario" : mi_formulario})
