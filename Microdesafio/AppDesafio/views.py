@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Producto
 from .models import Profesor
 from .models import Estudiante
@@ -40,7 +40,7 @@ def cursos_formulario(request):
             informacion = mi_formulario.cleaned_data
             curso = Curso(informacion["curso"], informacion["camada"])
             curso.save()
-            return render(request, "inicio.html")
+            return redirect("AppDesafio:inicio")
     else:
         mi_formulario = CursoFormulario()
         return render(request, "cursos_formulario.html", {"mi_formulario" : mi_formulario})
