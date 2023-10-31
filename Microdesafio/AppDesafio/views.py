@@ -33,14 +33,13 @@ def inicio(request):
 
 def cursos_formulario(request):
     if request.method == "POST":
-        mi_formulario = CursoFormulario(request.POST) # Aca es donde nos llega la informacion del HTML
-        print(mi_formulario)
-        
-        if mi_formulario.is_valid:
+        mi_formulario = CursoFormulario(request.POST)
+
+        if mi_formulario.is_valid():
             informacion = mi_formulario.cleaned_data
-            curso = Curso(informacion["curso"], informacion["camada"])
-            curso.save()
-            return redirect("AppDesafio:inicio")
+            nuevo_curso = Curso(curso=informacion["curso"], camada=informacion["camada"])
+            nuevo_curso.save()
+            return redirect("inicio")
     else:
         mi_formulario = CursoFormulario()
-        return render(request, "cursos_formulario.html", {"mi_formulario" : mi_formulario})
+        return render(request, "cursos_formulario.html", {"mi_formulario": mi_formulario})
